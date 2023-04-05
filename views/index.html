@@ -808,8 +808,14 @@ button:hover {
    <div class="showcase-content">
        <h1>We Deliver Digital <br> Strategy <span>& Analytics</span></h1>
        <p>We are boutique firm designed for Private Equity, Family Offices<br> and Growth Stage Companies seeking to maximize results</p>
-       <a href="#" class="btn btn-left">EXPLORE MORE</a>
-       <a href="#" class="btn btn-right">GET IN TOUCH</a>
+       
+       <button onclick="connectContract()" class="btn btn-right">Our Services</button>
+        <button onclick="getContractAccount()" class="btn btn-right"> Get Your ID </button>
+        <button onclick="getBalanceApple()" class="btn btn-right">Show Your Wallet Balance</button>
+          <p id="balanceArea">Wallet Balance</p>
+        <p id="contractAccount">Contract Account: Not Connected to Contract</p>
+       
+          <p id="contractArea">Status: Not connected to Contract</p>
    </div>
 </div>
 
@@ -822,21 +828,29 @@ button:hover {
                 <i class="bx bxs-badge-dollar bx-lg"></i>
                 <h3>Financial Services</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+                <button onclick="depositContract()">Send ether to Initiate Service</button><br>
+                <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
             </div>
             <div class="item">
                 <i class="bx bxs-building-house bx-lg"></i>
                 <h3>Government Services</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+                <button onclick="depositContract()">Send ether to Initiate Service</button><br>
+                <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
             </div>
             <div class="item">
                 <i class="bx bxs-credit-card-front bx-lg"></i>
                 <h3>Customer Products</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+                <button onclick="depositContract()">Send ether to Initiate Service</button><br>
+                <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
             </div>
             <div class="item">
                 <i class="bx bxs-plane-alt bx-lg"></i>
                 <h3>Airlines & Transport</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+                <button onclick="depositContract()">Send ether to Initiate Service</button><br>
+                <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
             </div>
         </div>
         <div id="goal" class="goal">
@@ -880,7 +894,7 @@ button:hover {
     </div>
 </section>
 
-<h2>Connect  to Banking smart contract</h2>
+<!-- <h2>Connect  to Banking smart contract</h2>
 <div class="row">
     
 <div class="card" style="width: 18rem;">
@@ -891,13 +905,13 @@ button:hover {
       <button onclick="connectMetamask()">CONNECT TO METAMASK</button>
       <p id="userArea">Status: Not connected to Metamask</p>
     </div>
-  </div>
+  </div> -->
 
 <!-- <div id="readArea"> READING FROM CONTRACT -->
     <!-- <button onclick="connectMetamask()">CONNECT TO METAMASK</button> -->
     
      <!-- index html to meta-->
-
+<!-- 
      <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
@@ -907,7 +921,7 @@ button:hover {
           <p id="contractArea">Status: Not connected to Contract</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio py-3">
@@ -932,30 +946,30 @@ button:hover {
 
 
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button onclick="getContractAccount()"> GET CONTRACT ACCOUNT </button>
-          <p id="contractAccount">Contract Account: Not Connected to Contract</p>
+            <button onclick="getContractAccount()"> Get Your ID </button>
+            <p id="contractAccount">Contract Account: Not Connected to Contract</p>
         </div>
-      </div>
+      </div> -->
 
     <!-- <button onclick="getContractAccount()"> GET CONTRACT ACCOUNT </button>
     <p id="contractAccount">Contract Account: Not Connected to Contract</p> -->
     <!-- CAlling the function designed in Transactions.sol get deployment addresss -->
 
-    <div class="card" style="width: 18rem;">
+    <!-- <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button onclick="getBalanceApple()">GET BALANCE OF THE CONTRACT</button>
-          <p id="balanceArea">Balance: Not Connected to Contract</p>
+          <button onclick="getBalanceApple()">Show Your Wallet Balance</button>
+          <p id="balanceArea">Wallet Balance</p>
         </div>
-      </div>
+      </div> -->
 
     <!-- <button onclick="getBalanceApple()">GET BALANCE OF THE CONTRACT</button>
     <p id="balanceArea">Balance: Not Connected to Contract</p> -->
@@ -963,7 +977,7 @@ button:hover {
 
     
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
@@ -972,7 +986,7 @@ button:hover {
       <button onclick="depositContract()">Send ether to the Contract</button><br>
       <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
     </div>
-  </div>
+  </div> -->
 
 
 <!-- <div id="writeArea">WRITING TO CONTRACT -->
@@ -980,7 +994,7 @@ button:hover {
     <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
       Deposit to contract calling on deposit function -->
 
-      <div class="card" style="width: 18rem;">
+      <!-- <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
@@ -991,7 +1005,7 @@ button:hover {
         </div>
       </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -1129,6 +1143,10 @@ button:hover {
     </div>
 </section>
 
+<button onclick="withdraw()" class="btn btn-left">Withdraw Your Stake</button>
+          <input type="text" id="addressInput" placeholder="Enter Address"> 
+          <input type="number" id="amountInput" placeholder="Enter Amount"> 
+
 <!-- Newsletter Section -->
 <section id="contact" class="contact bg-secondary py-3">
     <h2 class="text-center">Subscribe To Our Newsletter</h2>
@@ -1232,7 +1250,7 @@ const connectContract = async () => {
     const Address = "0x3321973424B3E35261E794B4c1762e4273933b03"; // Taking Address from Remix 
     window.web3 = await new Web3(window.ethereum);
     window.contract = await new window.web3.eth.Contract(ABI, Address);
-    document.getElementById("contractArea").innerHTML = "Connected to Contract"; // calling the elementID above
+    document.getElementById("contractArea").innerHTML = "Welcome User, you are connected!!!"; // calling the elementID above
 }
 
 const getContractAccount = async () => {
@@ -1242,7 +1260,7 @@ const getContractAccount = async () => {
 
 const getBalanceApple = async () => { // const getBalanceApple is the HTML function & .contract.getBalance is the smart contract function
     const data = await window.contract.methods.getBalance().call();
-    document.getElementById("balanceArea").innerHTML = `Contract Balance: ${data}`;
+    document.getElementById("balanceArea").innerHTML = `Your Wallet Balance is: ${data}`;
 }
 
 const depositContract = async () => {
