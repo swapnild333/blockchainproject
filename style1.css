@@ -1,0 +1,63 @@
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  
+  
+  .container {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  
+  
+  form {
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+    padding: 20px;
+  }
+  
+  
+  
+  input[type="text"], input[type="password"] {
+    border: 1px solid #d0d0d0;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  
+  
+  button {
+    background-color: #4caf50;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+
+  body {
+
+    background-image: url('images/sports-faith-background.jpg');
+
+    background-size: cover;
+
+  }
+  
+  
+  .message {
+    color: red;
+    margin-top: 10px;
+  }
+
+  

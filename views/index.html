@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PayApp 12.07</title>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+<title>Financial | DesignMediaX</title>
+>
+    <link rel="stylesheet" href="boxicons-2.0.9/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    
+    <!-- <style>
+       body {
+            background-color: rgb(112, 140, 216);
+            font-family: tahoma;
+            font-size: 33px;
+            display: flex;
+            flex-direction: row;
+        }
+        button {
+            background-color: rgb(203, 220, 223);
+            font-size: 33px;
+            padding: 5px;
+            font-family: Impact;
+        }
+        input {
+            width: 25vw;
+            height: 30px;
+            font-size: 25px;
+            font-family: tahoma;
+            outline: none;
+        }
+        #readArea {
+            flex-basis: 50%;
+        }
+        #writeArea {
+            flex-basis: 50%;
+        }
+        button:hover {
+            background-color: rgb(255, 0, 0);
+        }
+
+
+    </style> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Smooth Scroll */
+html{
+    scroll-behavior: smooth;
+}
+
+/* Utility Classes */
+.text-secondary{
+    color: #55BA53;
+}
+.text-center{
+    text-align: center;
+}
+.bg-light{
+    background: #cfcfcf;
+}
+.bg-secondary{
+    background: #55BA53;
+}
+
+.py-0{padding: 16px 0;}
+.py-1{padding: 24px 0;}
+.py-2{padding: 32px 0;}
+.py-3{padding: 48px 0;}
+
+.p-0{padding: 16px;}
+.p-1{padding: 24px;}
+.p-2{padding: 32px;}
+.p-3{padding: 48px;}
+.p-4{padding: 1px;}
+
+.wrapper{
+    max-width: 1320px;
+    padding: 0 50px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.btn{
+    display: inline-block;
+    padding: 15px 25px;
+    margin-right: 30px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+
+/* Showcase Area Styling */
+
+.showcase{
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./images/background.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Top Navbar */
+
+.showcase .navbar-top{
+    width: 100%;
+    display: flex;
+    padding: 0 80px;
+    margin: 0 auto;
+    justify-content: space-between;
+    /* align-items: center; */
+    background-color: #0A2940;
+    top: 0;
+    left: 0;
+}
+.showcase .left{
+    display: flex;
+    list-style: none;
+}
+.showcase .left li a{
+    display: inline-block;
+    font-size: 13px;
+    text-decoration: none;
+    color: #95A2BB;
+    padding: 5px 15px;
+    transition: all 0.5s ease;
+}
+.showcase .left li a:hover{
+    color: #55BA53;
+}
+.showcase .left li:first-child{
+    font-weight: 700;
+    border-right: 1px solid #536DAF;
+}
+.showcase .right{
+    display: flex;
+    list-style: none;
+}
+.showcase .right li a{
+    display: inline-block;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #95A2BB;
+    transition: all 0.5s ease;
+}
+.showcase .right li a:hover{
+    color: #55BA53;
+}
+
+/* Bottom Navbar */
+.showcase .navbar-bottom{
+    width: 100%;
+    background: #cfcfcf;
+    padding: 25px 95px;
+    align-items: center;
+    margin:  auto;
+    display: flex;
+    position: fixed; 
+    justify-content: space-between;
+    overflow: hidden;
+}
+.navbar-bottom.sticky{
+    padding: 15px 95px;
+    background: #fff;
+    border-bottom: 1px solid #0A2940;
+    color: #0A2940;
+    top: 0;
+    z-index: 999;
+}
+.showcase .navbar-bottom .brand-left{
+    color: #55BA53;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.showcase .navbar-bottom.sticky .brand-left{
+    color: #0A2940;
+}
+.showcase .navbar-bottom .brand-left:hover{
+    color: #0A2940;
+}
+.showcase .navbar-bottom .menu-right{
+    display: flex;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+.showcase .navbar-bottom.sticky .menu-right li:last-child{
+    display: none;
+}
+.showcase .navbar-bottom .menu-right a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 20px;
+    color: #1A1B1E;
+    transition: all 0.5s ease;
+}
+.showcase .navbar-bottom .menu-right a:hover{
+    color: #55BA53;
+}
+
+/* Navbar Bottom Search Form */
+.navbar-bottom .search-form{
+    position: absolute;
+    top: 60%;
+    right: 10%;
+    background: #f4f4f4;
+    width: 350px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.5s ease;
+}
+.navbar-bottom .search-form.active{
+    transform: scaleY(1);
+}
+
+.navbar-bottom .search-form input{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border: none;
+    background: #f4f4f4;
+    color: #1A1B1E;
+    padding: 14px;
+    text-transform: none;
+    outline: none;
+}
+.navbar-bottom .search-form label{
+    cursor: pointer;
+    font-size: 30px;
+    border: none;
+    margin-right: 12px;
+}
+.navbar-bottom .search-form label:hover{
+    color: #55BA53;
+}
+
+/* Showcase-content Section styling */
+.showcase .showcase-content{
+    max-width: 850px;
+    margin-top: 15%;
+    padding: 0 95px;
+}
+.showcase .showcase-content h1{
+    color: #55BA53;
+    font-size: 60px;
+    margin: 15px 0;
+}
+.showcase .showcase-content span{
+    color: #fff;
+    font-family: 'Verdana', sans-serif;
+    font-weight: 500;
+}
+.showcase .showcase-content p{
+    color: #ceced4;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.showcase .showcase-content .btn-left{
+    background: linear-gradient(to right, #0a3609 , #55BA53);
+}
+.showcase .showcase-content .btn-right{
+    background: linear-gradient(to right,#55BA53, #0a3609);
+}
+
+/* Services Section Styling */
+#services .items{
+    display: flex;
+    padding-bottom: 40px;
+}
+
+#services .items .item{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    background: #0A2940;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.3), -5px -5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+#services .items .item h3{
+    color: #55BA53;
+    font-size: 16px;
+    margin: 5px;
+}
+#services .items .item p{
+    line-height: 1.4;
+    color: #95A2BB;
+}
+#services .items .item i{
+    color: #95A2BB;
+}
+#services .items .item:hover i{
+    color: #55BA53;
+}
+#services .items .item:hover{
+    background:#0A2940;
+    transform: scale(1.05);
+}
+#services .items .item:hover h3{
+    color: #f4f4f4;
+}
+
+/* Services Section Bottom */
+#goal{
+    display: flex;
+    padding-top: 20px;
+}
+#goal div{
+    flex: 1;
+}
+#goal .goal-img{
+    display: inline-block;
+    position: relative;
+    width: 600px;
+    height: 380px;
+    overflow: hidden;
+}
+#goal .goal-img img{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+#goal .goal-text{
+    margin: 0 40px;
+}
+#goal .goal-text a{
+    color: #f4f4f4;
+    background: #55BA53;
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid #55BA53;
+    border-radius: 25px;
+    padding: 3px 10px;
+    transition: 0.5s;
+}
+#goal .goal-text a:hover{
+    color: #55BA53;
+    background: #0A2940;
+}
+#goal .goal-text h2{
+    margin: 20px 0;
+    color: #0A2940;
+}
+#goal .goal-text .contents{
+    display: flex;
+}
+#goal .goal-text .contents .content{
+    flex: none;
+    padding: 10px;
+}
+#goal .goal-text .contents .content h3{
+    font-size: 16px;
+    padding-bottom: 5px;
+    color: #55BA53;
+}
+#goal .goal-text .contents .content p{
+    color: #1A1B1E;
+}
+#goal .goal-text .contents .content i{
+    color: #55BA53;
+    padding: 3px;
+    background: #0A2940;
+    align-self: flex-start;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+/* Portfolio Section Styling  */
+#portfolio{
+    background: #0A2940;
+}
+.portfolio h3{
+    color: #95A2BB;
+    font-size: 14px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+.portfolio h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: #95A2BB;
+    margin-bottom: 20px;
+}
+.portfolio h2 span{
+    font-weight: 500;
+}
+.portfolio p{
+    color: #95A2BB;
+    line-height: 1.6;
+    margin-bottom: 100px;
+}
+.owl-carousel .item img{
+    display: block;
+    width: 700px;
+    height: 300px;
+    border: 2px solid #95A2BB;
+    object-fit: cover;
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none !important;
+    border-radius: 50%;
+    border: 2px solid #55BA53 !important;
+}
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+    background: #55BA53 !important;
+}
+
+/* Teams Section Styling */
+#teams h3{
+    color: #0A2940;
+    font-size: 14px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+#teams h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: #0A2940;
+    margin-bottom: 20px;
+}
+#teams h2 span{
+    font-weight: 500;
+}
+#teams p{
+    color: #0A2940;
+    line-height: 1.6;
+    margin-bottom: 100px;
+}
+#teams .wrapper .card-items{
+    display: flex;
+    margin-top: -50px;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+#teams .wrapper .card{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    width: 280px;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+#teams .wrapper .card:hover{
+    background: #0A2940;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#teams .wrapper .card .card-header{
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 30px auto;
+    transform: translateY(40px);
+}
+#teams .wrapper .card .card-header img{
+    width: 100%;
+    height: auto;
+}
+#teams .wrapper .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 200px;
+}
+#teams .wrapper .card h3{
+    font-size: 16px;
+    color: #95A2BB;
+    padding-top: 30px;
+}
+#teams .wrapper .card .card-body h4{
+    font-size: 14px;
+    font-weight: 600;
+    color: #55BA53;
+    margin-top: 0px;
+}
+#teams .wrapper .card .card-body ul{
+    display: flex;
+    list-style: none;
+    padding-top: 50px;
+}
+#teams .wrapper .card .card-body ul li i{
+    padding: 5px;
+    margin: 0 7px;
+    border: 1px solid #95A2BB;
+    border-radius: 50%;
+    background: #0A2940;
+    color: #55BA53;
+    transition: all 0.3s ease;
+}
+#teams .wrapper .card .card-body ul li i:hover{
+    background: #55BA53;
+    color: #0A2940;
+}
+
+/* Blog Section Styling  */
+#blog{
+    background: #0A2940;
+}
+#blog .wrapper .header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#blog .wrapper .header span{
+    height: 1px;
+    width: 4%;
+    background: #95A2BB;
+}
+#blog .wrapper .header h4{
+    color: #95A2BB;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+#blog .wrapper .blog-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#blog .wrapper .blog-info h2{
+    font-size: 40px;
+    color: #95A2BB;
+    font-weight: 600;
+}
+#blog .wrapper .blog-info h2 span{
+    font-weight: 500;
+}
+#blog .wrapper .blog-info a{
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #55BA53;
+    color: #0A2940;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid #55BA53;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+#blog .wrapper .blog-info a:hover{
+    background: none;
+    color: #95A2BB;
+}
+#blog .wrapper .blog-card{
+    display: flex;
+    margin-top: -50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#blog .wrapper .card{
+    margin: 70px 5px;
+    background-color: #cfcfcf;
+    border-radius: 5px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    width: 370px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+#blog .wrapper .card:hover{
+    transform: scale(1.05);
+}
+#blog .wrapper .card .card-header img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+}
+#blog .wrapper .card .card-body .tag{
+    background: #ccc;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 30px;
+    color: #fff;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+#blog .wrapper .card .card-body .tag-yellow{
+    background-color: yellow;
+}
+#blog .wrapper .card .card-body .tag-purple{
+    background-color: #5C76BF;
+}
+#blog .wrapper .card .card-body .tag-pink{
+    background-color: #CD5B9F;
+}
+#blog .wrapper .card .card-body h4{
+    margin: 10px 30px;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    color: #0A2940;
+}
+#blog .wrapper .card .card-body .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 10px 2px 30px;
+    border-top: 1px solid #536DAF;
+    padding: 5px 0;
+}
+#blog .wrapper .card .card-body .footer small{
+    color: #1A1B1E;
+    font-weight: 600;
+}
+#blog .wrapper .card .card-body .footer a{
+    padding: 5px 10px;
+    background: #55BA53;
+    border-radius: 4px;
+    color: #0A2940;
+}
+
+/* Contact Section Styling */
+#contact h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+}
+#contact p{
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+#contact .wrapper form{
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    margin: 0 auto;
+}
+#contact .wrapper form input{
+    padding: 8px;
+    border: #ddd 1px solid;
+    outline: none;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+#contact .wrapper form .button{
+    padding: 8px;
+    margin-bottom: 100px;
+    background: #0A2940;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+#contact .wrapper form .button:hover{
+    background: #1A1B1E;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Footer Section Styling  */
+.footer-bottom{
+    background: #1A1B1E;
+    color: #536DAF;
+}
+.footer-bottom p{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Scroll up Styling */
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    border: 1px solid #fff;
+    background: #0A2940;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 30px;
+}
+button {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 12px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  margin-right: 10px; /* Adds spacing between buttons */
+}
+
+button:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+#depositInput, #addressInput, #amountInput {
+  margin-bottom: 10px; /* Adds spacing between input fields */
+  padding: 10px; /* Padding */
+  border-radius: 4px; /* Rounded corners */
+  border: none; /* No border */
+}
+.card {
+			margin-top: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 20px;
+		}
+    </style>
+</head>
+<body id="home">    
+
+    
+    <div class="scroll-up-btn">
+    <i class="bx bx-up-arrow-alt bx-sm"></i>
+</div>
+<div class="showcase">
+    <!-- navbar top section -->
+
+    <div class="navbar">
+        <ul class="left">
+            <li><a href="#">Liverpool</a></li>
+            <li><a href="#"><i class="bx bxs-time bx-xs"></i> Mon - sat: 8:00 - 10:00</a></li>
+            <li><a href="#"><i class="bx bxs-map bx-xs"></i> 411 University St. Seatle</a></li>
+            <li><a href="#"><i class="bx bxs-phone bx-xs"></i> +1-700-896-002-34</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="#"><i class="bx bxl-twitter bx-xs"></i></a></li>
+            <li><a href="#"><i class="bx bxl-pinterest-alt bx-xs"></i></a></li>
+            <li><a href="#"><i class="bx bxl-facebook bx-xs"></i></a></li>
+            <li><a href="#"><i class="bx bxl-instagram-alt bx-xs"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- navbar bottom section -->
+   <!-- <div class="navbar-bottom">
+        <a href="#home" class="brand-left">FINTECH</a>
+        <ul class="menu-right">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#teams">Teams</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#"><i class="bx bx-search bx-sm" id="search-btn"></i></a></li>
+        </ul>
+        <div class="search-form">
+            <input type="search" name="search-box" id="search-box" placeholder="search here...">
+            <label for="search-box" class="bx bx-search bx-sm"></label>
+        </div>
+   </div> -->
+
+   <!-- Showcase content Section -->
+   <div class="showcase-content">
+       <h1>We Deliver Digital <br> Strategy <span>& Analytics</span></h1>
+       <p>We are boutique firm designed for Private Equity, Family Offices<br> and Growth Stage Companies seeking to maximize results</p>
+       <a href="#" class="btn btn-left">EXPLORE MORE</a>
+       <a href="#" class="btn btn-right">GET IN TOUCH</a>
+   </div>
+</div>
+
+<!-- Services / Goal Section  -->
+
+<section id="services" class="bg-light py-3">
+    <div class="wrapper">
+        <div class="items">
+            <div class="item">
+                <i class="bx bxs-badge-dollar bx-lg"></i>
+                <h3>Financial Services</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+            </div>
+            <div class="item">
+                <i class="bx bxs-building-house bx-lg"></i>
+                <h3>Government Services</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+            </div>
+            <div class="item">
+                <i class="bx bxs-credit-card-front bx-lg"></i>
+                <h3>Customer Products</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+            </div>
+            <div class="item">
+                <i class="bx bxs-plane-alt bx-lg"></i>
+                <h3>Airlines & Transport</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, blanditiis.</p>
+            </div>
+        </div>
+        <div id="goal" class="goal">
+            <div class="goal-img">
+                <img
+                    src='images/photo1.jpg'
+                >
+            </div>
+            <div class="goal-text">
+                <a href="#">Our Priorities</a>
+                <h2>Investment Banking & <br> Capital Market</h2>
+                <div class="contents">
+                    <div class="content p-4">
+                        <i class="bx bx-check bx-sm"></i>
+                    </div>
+                    <div class="content p-4">
+                        <h3>Investment Management</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Nam ipsa vero accusantium enim culpa iure aspernatur ?</p>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="content p-4">
+                        <i class="bx bx-check bx-sm"></i>
+                    </div>
+                    <div class="content p-4">
+                        <h3>Private Credit & Equity</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Nam ipsa vero accusantium enim culpa iure aspernatur ?</p>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="content p-4">
+                        <i class="bx bx-check bx-sm"></i>
+                    </div>
+                    <div class="content p-4">
+                        <h3>Business Multi Solutions</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Nam ipsa vero accusantium enim culpa iure aspernatur ?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2>Connect  to Banking smart contract</h2>
+<div class="row">
+    
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <button onclick="connectMetamask()">CONNECT TO METAMASK</button>
+      <p id="userArea">Status: Not connected to Metamask</p>
+    </div>
+  </div>
+
+<!-- <div id="readArea"> READING FROM CONTRACT -->
+    <!-- <button onclick="connectMetamask()">CONNECT TO METAMASK</button> -->
+    
+     <!-- index html to meta-->
+
+     <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button onclick="connectContract()">CONNECT TO CONTRACT</button>
+          <p id="contractArea">Status: Not connected to Contract</p>
+        </div>
+      </div>
+    </div>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio py-3">
+    <h3 class="text-center">Company Portfolio</h3>
+    <h2 class="text-center">Our Latest <span class="text-secondary">Case Studies</span> </h2>
+    <p class="text-center">We help you see the world differently, discover opportunities you may never have <br> imagined and achieve results that bridge what is with what can be</p>
+    <div class="owl-carousel">
+        <div class="item"><img src="images/photo2.jpg"></div>
+        <div class="item"><img src="./images/photo3.jpg"></div>
+        <div class="item"><img src="./images/photo4.jpg"></div>
+        <div class="item"><img src="./images/photo5.jpg"></div>
+        <div class="item"><img src="./images/photo6.jpg"></div>
+        <div class="item"><img src="./images/photo7.jpg"></div>
+        <div class="item"><img src="./images/photo8.jpg"></div>
+        <div class="item"><img src="./images/photo9.jpg"></div>
+        <div class="item"><img src="./images/photo10.jpg"></div>
+        <div class="item"><img src="./images/photo11.jpg"></div>
+        <div class="item"><img src="./images/photo12.jpg"></div>
+        <div class="item"><img src="./images/photo13.jpg"></div>
+    </div>
+</section>
+
+
+</div>
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button onclick="getContractAccount()"> GET CONTRACT ACCOUNT </button>
+          <p id="contractAccount">Contract Account: Not Connected to Contract</p>
+        </div>
+      </div>
+
+    <!-- <button onclick="getContractAccount()"> GET CONTRACT ACCOUNT </button>
+    <p id="contractAccount">Contract Account: Not Connected to Contract</p> -->
+    <!-- CAlling the function designed in Transactions.sol get deployment addresss -->
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button onclick="getBalanceApple()">GET BALANCE OF THE CONTRACT</button>
+          <p id="balanceArea">Balance: Not Connected to Contract</p>
+        </div>
+      </div>
+
+    <!-- <button onclick="getBalanceApple()">GET BALANCE OF THE CONTRACT</button>
+    <p id="balanceArea">Balance: Not Connected to Contract</p> -->
+    <!-- CAlling the function designed in Transactions.sol get balance -->
+
+    
+</div>
+<div class="row">
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <button onclick="depositContract()">Send ether to the Contract</button><br>
+      <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
+    </div>
+  </div>
+
+
+<!-- <div id="writeArea">WRITING TO CONTRACT -->
+    <!-- <button onclick="depositContract()">Send ether to the Contract</button><br>
+    <input type="number" id="depositInput" placeholder="Enter Amount"><br> <br>
+      Deposit to contract calling on deposit function -->
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button onclick="withdraw()">WITHDRAW ETHER TO ANY ADDRESS</button> <br>
+          <input type="text" id="addressInput" placeholder="Enter Address"> <br>
+          <input type="number" id="amountInput" placeholder="Enter Amount"> 
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+    <!-- <button onclick="withdraw()">WITHDRAW ETHER TO ANY ADDRESS</button> <br>
+    <input type="text" id="addressInput" placeholder="Enter Address"> <br>
+    <input type="number" id="amountInput" placeholder="Enter Amount">  -->
+            <!-- CAlling the function designed in Transactions.sol -->
+    <!-- calling the withdraw function -->
+</div>
+
+<!-- Team Section -->
+<section id="teams" class="teams bg-light py-3">
+    <h3 class="text-center">We are there for you</h3>
+    <h2 class="text-center">Meet Our <span class="text-secondary">Professional Team</span></h2>
+    <p class="text-center">We help you see the world differently, discover opportunities you may never have <br> imagined and achieve results that bridge what is with what can be</p>
+    <div class="wrapper">
+        <div class="card-items">
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/cynthia.jpg">
+                </div>
+                <div class="card-body">
+                    <h3>Cynthia Spears</h3>
+                    <h4>Chief Communication Officer</h4>
+                    <ul>
+                        <li><a href="#"><i class="bx bxl-twitter bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-pinterest-alt bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-facebook bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-instagram-alt bx-xs"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/vera.jpg">
+                </div>
+                <div class="card-body">
+                    <h3>Vera Monica</h3>
+                    <h4>Chief Business Project</h4>
+                    <ul>
+                        <li><a href="#"><i class="bx bxl-twitter bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-pinterest-alt bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-facebook bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-instagram-alt bx-xs"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/kevin.jpg">
+                </div>
+                <div class="card-body">
+                    <h3>Kevin Philips</h3>
+                    <h4>International Consultant</h4>
+                    <ul>
+                        <li><a href="#"><i class="bx bxl-twitter bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-pinterest-alt bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-facebook bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-instagram-alt bx-xs"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/augusta.jpg">
+                </div>
+                <div class="card-body">
+                    <h3>Augusta Brian</h3>
+                    <h4>Co-Founder of Company</h4>
+                    <ul>
+                        <li><a href="#"><i class="bx bxl-twitter bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-pinterest-alt bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-facebook bx-xs"></i></a></li>
+                        <li><a href="#"><i class="bx bxl-instagram-alt bx-xs"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="blog py-3">
+    <div class="wrapper">
+        <div class="header">
+            <span></span>
+            <h4>Business Blog</h4>
+        </div>
+        <div class="blog-info">
+            <h2>Read Our <span class="text-secondary">Latest Insights</span></h2>
+            <a href="#">view all</a>
+        </div>
+        <div class="blog-card">
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/blog1.jpg">
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-yellow">Business</span>
+                    <h4>Contactless Payments' <br> Time has come</h4>
+                    <div class="footer">
+                        <small>April 7, 2022 / 5 comments</small>
+                        <a href="#"><i class="bx bx-right-arrow-alt bx-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/blog2.jpg">
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-purple">Finance</span>
+                    <h4>The Future of Retail: <br> Europe's Ecosystems</h4>
+                    <div class="footer">
+                        <small>April 11, 2022 / 20 comments</small>
+                        <a href="#"><i class="bx bx-right-arrow-alt bx-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img src="/images/blog3.jpg">
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-pink">Marketiing</span>
+                    <h4>Digital Transformation <br> Roadmap: Enablers</h4>
+                    <div class="footer">
+                        <small>April 30, 2022 / 10 comments</small>
+                        <a href="#"><i class="bx bx-right-arrow-alt bx-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="contact" class="contact bg-secondary py-3">
+    <h2 class="text-center">Subscribe To Our Newsletter</h2>
+    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,<br> quam asperiores qui illum tenetur atque.</p>
+    <div class="wrapper">
+        <form class="text-center">
+            <input type="email" name="email" id="email" placeholder="Enter Email Address">
+            <button class="button">Submit</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer-bottom py-3 text-center">
+    <p>Copyright &copy; 2022 by DesignMediaX. All Rights Reserved.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<h1>Crypto Prices Dashboard</h1>
+<div class="prices">
+  <div class="btc">
+    <h2>Bitcoin</h2>
+    <p class="price"></p>
+  </div>
+  <div class="eth">
+    <h2>Ethereum</h2>
+    <p class="price"></p>
+  </div>
+</div>
+  
+<script> // the below script code is convention in web3 in forming the communication with Web
+
+let account;
+const connectMetamask = async () => {
+    if (window.ethereum !== "undefined") {
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+        account = accounts[0];
+        document.getElementById("userArea").innerHTML = `User Account: ${account}`;
+    }
+}
+
+const connectContract = async () => {
+    const ABI = [
+        
+    
+	{
+		"inputs": [],
+		"name": "deposit",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+    const Address = "0x3321973424B3E35261E794B4c1762e4273933b03"; // Taking Address from Remix 
+    window.web3 = await new Web3(window.ethereum);
+    window.contract = await new window.web3.eth.Contract(ABI, Address);
+    document.getElementById("contractArea").innerHTML = "Connected to Contract"; // calling the elementID above
+}
+
+const getContractAccount = async () => {
+    const data = await window.contract.methods.getAddress().call();
+    document.getElementById("contractAccount").innerHTML = `Contract Account: ${data}`;
+}
+
+const getBalanceApple = async () => { // const getBalanceApple is the HTML function & .contract.getBalance is the smart contract function
+    const data = await window.contract.methods.getBalance().call();
+    document.getElementById("balanceArea").innerHTML = `Contract Balance: ${data}`;
+}
+
+const depositContract = async () => {
+    const amount = document.getElementById("depositInput").value;
+    await window.contract.methods.deposit().send({ from: account, value: amount });
+}
+
+const withdraw = async () => {
+    const amount = document.getElementById("amountInput").value;
+    const address = document.getElementById("addressInput").value;
+    await window.contract.methods.withdraw(address, amount).send({ from: account });
+}
+
+const btcPriceEl = document.querySelector('.btc .price');
+const ethPriceEl = document.querySelector('.eth .price');
+
+fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd')
+  .then(response => response.json())
+  .then(data => {
+    const btcPrice = data.bitcoin.usd;
+    const ethPrice = data.ethereum.usd;
+    btcPriceEl.textContent = '$' + btcPrice.toLocaleString();
+    ethPriceEl.textContent = '$' + ethPrice.toLocaleString();
+  })
+  .catch(error => console.error(error));
+    </script>
+   
+</body>
+</html>

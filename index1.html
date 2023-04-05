@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smart Contract Interaction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+      /* Add CSS styles here */
+      body {
+        background-image: url('https://example.com/cryptocurrency-background-image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      button {
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="number"], input[type="text"] {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #readArea, #writeArea {
+        margin: 20px;
+      }
+      #readArea p, #writeArea p {
+        margin: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td valign="top">
+          <div id="readArea">
+            <h2>Retrieve information from contract</h2>
+            <button onclick="connectMetamask()">Connect to Metamask</button>
+            <p id="userArea">Status: Not connected to Metamask</p>
+            <button onclick="connectContract()">Connect to Contract</button>
+            <p id="contractArea">Status: Not connected to Contract</p>
+            <button onclick="getContractAccount()">Get Contract Account</button>
+            <p id="contractAccount">Contract Account: Not Connected to Contract</p>
+            <button onclick="getBalanceApple()">Get Balance of the Contract</button>
+            <p id="balanceArea">Balance: Not Connected to Contract</p>
+          </div>
+        </td>
+        <td valign="top">
+          <div id="writeArea">
+            <h2>Send data to contract</h2>
+            <button onclick="depositContract()">Deposit Ether to the Contract</button><br>
+            <input type="number" id="depositInput" placeholder="Enter Amount"><br>
+            <button onclick="withdraw()">Withdraw Ether to any Address</button> <br>
+            <input type="text" id="addressInput" placeholder="Enter Address"> <br>
+            <input type="number" id="amountInput" placeholder="Enter Amount"> 
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <script> // the below script code is convention in web3 in forming the communication with Web
+
+        let account;
+        const connectMetamask = async () => {
+            if(window.ethereum !== "undefined") {
+                const accounts = await ethereum.request({method: "eth_requestAccounts"});
+                account = accounts[0];
+                document.getElementById("userArea").innerHTML = `User Account: ${account}`;
+            }
+        }
+
+        const connectContract = async () => {
+            const ABI = 
+            [
+	{
+		"inputs": [],
+		"name": "deposit",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+            ;
+            const Address = "0x964303dF0Fdb01FFcf655852F24665ac206Fa4C8"; // Taking Address from Remix 
+            window.web3 = await new Web3(window.ethereum);
+            window.contract = await new window.web3.eth.Contract(ABI, Address);
+            document.getElementById("contractArea").innerHTML = "Connected to Contract"; // calling the elementID above
+        }
+
+        const getContractAccount = async () => {
+            const data = await window.contract.methods.getAddress().call();
+            document.getElementById("contractAccount").innerHTML = `Contract Account: ${data}`;
+        }
+
+        const getBalanceApple = async () => { // const getBalanceApple is the HTML function & .contract.getBalance is the smart contract function
+            const data = await window.contract.methods.getBalance().call();
+            document.getElementById("balanceArea").innerHTML = `Contract Balance: ${data}`;
+        }
+
+        const depositContract = async () => {
+            const amount = document.getElementById("depositInput").value;
+            await window.contract.methods.deposit().send({from: account, value: amount});
+        }
+
+        const withdraw = async () => {
+            const amount = document.getElementById("amountInput").value;
+            const address = document.getElementById("addressInput").value;
+            await window.contract.methods.withdraw(address, amount).send({from: account});
+        }
+
+    </script>
+  </body>
+</html>
